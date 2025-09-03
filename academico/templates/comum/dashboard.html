@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/_preloader.html' %}
+{% include 'partials/_buscar.html' %}
+{% include 'partials/_header.html' %}
+<!-- CONTEUDO -->
+<section class="best-acad-area">
+    <div class="container">
+        {% if matriculas %}
+        <div class="mb-30">
+            <h1>CURSOS</h1>
+        </div>
+        <div class="row">
+            {% for matricula in matriculas %}
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="single-best-acad-area mb-30 text-center">
+                    <div class="text-dark font-bold mt-30 h5">
+                        {{ matricula.curso.codigo }} - {{ matricula.curso.descricao }}
+                    </div>
+                    <div class="mt-30">
+                        <a href="{% url 'curso' matricula.curso.id %}" type="button" class="btn delicious-btn">
+                            SAIBA MAIS
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% include 'partials/_footer.html' %}
+{% endblock %}
+

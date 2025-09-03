@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/_preloader.html'%}
+{% include 'partials/_buscar.html' %}
+{% include 'partials/_header.html' %}
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h2>Cadastro realizado com sucesso!</h2>
+                </div>
+            </div>
+        </div>
+        {% include 'partials/_alertas.html' %}
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <p>Nome: {{ form_user.first_name.value }}</p>
+                    <p>Sobrenome: {{ form_user.last_name.value }}</p>
+                    <p>E-mail: {{ form_user.email.value }}</p>
+                    <p>CPF: {{ form_user.username.value }}</p>
+                    <p>Data de nascimento: {{ form_aluno.data_nascimento.value }}</p>
+                    <p>Sexo: {{ form_aluno.sexo.value }}</p>
+                    <p>Telefone: {{ form_aluno.telefone.value }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'partials/_footer.html' %}
+{% endblock %}
